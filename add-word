@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+if (process.argv.length < 3) {
+  console.error('Usage: add-word <word>')
+  process.exit(1) }
+
+var fs = require('fs')
+var uniq = require('array-uniq')
+var exec = require('child_process').execSync
+
+var newWord = process.argv[2]
+
+fs.writeFileSync(
+  'index.json',
+  ( JSON.stringify(
+      uniq(
+        require('./index.json')
+          .concat(newWord)
+          .sort()),
+      null,
+      2) +
+    '\n' ))
+
+exec('git add -u')
+exec('git commit --message \'Add "' + newWord + '"\'')

@@ -11,5 +11,8 @@
     "words"
   ],
   "license": "CC0-1.0",
-  "repository": "kemitchell/american-legal-archaisms"
+  "repository": "kemitchell/american-legal-archaisms",
+  "devDependencies": {
+    "array-uniq": "^1.0.2"
+  }
 }
