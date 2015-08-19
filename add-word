@@ -21,5 +21,5 @@ fs.writeFileSync(
       2) +
     '\n' ))
 
-process.stdout.write(exec('git add -u'))
-process.stdout.write(exec('git commit --message \'Add "' + newWord + '"\''))
+exec('git add -u')
+exec('git commit --message \'Add "' + newWord + '"\'')
