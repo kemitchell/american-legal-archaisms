@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+require('fs').writeFileSync(
+  './index.json',
+  JSON.stringify(
+    require('array-uniq')(
+      [ ]
+        .concat(require('./index.json'))
+        .concat(
+          require('kimble-plain-words')
+            .filter(function(element) {
+              return ( element.category === 'lawyerisms' ) })
+            .reduce(
+              function(words, element) {
+                return words.concat(element['instead of'].map(function(target) {
+                  return target.phrase })) },
+              [ ]))
+        .sort()),
+      null,
+      2) +
+  '\n')

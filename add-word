@@ -11,10 +11,10 @@ var exec = require('child_process').execSync
 var newWord = process.argv[2]
 
 fs.writeFileSync(
-  'index.json',
+  'manual.json',
   ( JSON.stringify(
       uniq(
-        require('./index.json')
+        require('./manual.json')
           .concat(newWord)
           .sort()),
       null,
